@@ -12,6 +12,7 @@ class Start extends window.Phaser.State {
 
   preload() {
     this.load.image('blueball', 'images/blue-ball.png')
+    this.load.image('brick', 'images/brick.jpg')
   }
 
   create() {
@@ -27,8 +28,8 @@ class Start extends window.Phaser.State {
     this.startCircle.width = 100;
     this.startCircle.height = 100;
 
-    this.startCircle.inputEnabled = true
-    this.startClrcle.events.onInputDown.add(function () {
+    this.startCircle.inputEnabled = true;
+    this.startCircle.events.onInputDown.add(function () {
       this.state.start('Game')
     }, this)
   }

@@ -8,6 +8,7 @@ window.Phaser = require('./js/libs/phaser-split.min')
 
 import StartState from './states/Start.js'
 import GameState from './states/Game.js'
+import GameOverState from './states/GameOver.js'
 
 var gameWidth = window.innerWidth;
 var gameHeight = window.innerHeight;
@@ -21,4 +22,5 @@ var game = new Phaser.Game({
 
 game.state.add('Start', StartState, false)
 game.state.add('Game', GameState, false)
+game.state.add('GameOver', GameOverState, false)
 game.state.start('Start')
