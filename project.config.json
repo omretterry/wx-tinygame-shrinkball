@@ -21,9 +21,13 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
+		"plugin": {
+			"current": -1,
 			"list": []
+		},
+		"game": {
+			"list": [],
+			"current": -1
 		},
 		"miniprogram": {
 			"current": -1,

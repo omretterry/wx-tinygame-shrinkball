@@ -11,8 +11,11 @@ class Start extends window.Phaser.State {
   }
 
   preload() {
-    this.load.image('blueball', 'images/blue-ball.png')
-    this.load.image('brick', 'images/brick.jpg')
+    this.load.image('blueball', 'images/blueball.png')
+    this.load.image('greenball', 'images/greenball.png')
+    this.load.image('redball', 'images/redball.png')
+    this.load.image('yellowball', 'images/yellowball.png')
+    this.load.image('brick', 'images/brick.png')
   }
 
   create() {
@@ -22,7 +25,8 @@ class Start extends window.Phaser.State {
       fontSize: 30
     })
     this.gametitle.anchor.setTo(0.5)
-    this.startCircle = this.add.sprite(this.world.centerX, this.world.height - 120, 'blueball');
+    this.colorBall = this._getRandomColorBall();
+    this.startCircle = this.add.sprite(this.world.centerX, this.world.height - 120, this.colorBall);
 
     this.startCircle.anchor = new Phaser.Point(0.5, 0.5);
     this.startCircle.width = 100;
@@ -30,12 +34,19 @@ class Start extends window.Phaser.State {
 
     this.startCircle.inputEnabled = true;
     this.startCircle.events.onInputDown.add(function () {
-      this.state.start('Game')
+      this.state.start('Game', true, false, this.colorBall);
     }, this)
   }
 
   render() {
 
+  }
+
+  _getRandomColorBall(){
+    let colorBall = ['redball','yellowball','blueball','greenball'];
+    let index = Math.floor(Math.random()*4);
+    console.log(colorBall[index]);
+    return colorBall[index];
   }
 }
 
