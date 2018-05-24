@@ -16,12 +16,14 @@ class Start extends window.Phaser.State {
     this.load.image('redball', 'images/redball.png')
     this.load.image('yellowball', 'images/yellowball.png')
     this.load.image('brick', 'images/brick.png')
+    this.load.image('restart', 'images/restart.png')
   }
 
   create() {
     this.gametitle = this.add.text(this.world.centerX, this.world.centerY - 120, 'Shrink Ball', {
       font: 'Arial',
       fill: '#fff',
+      fontWeight: 'bold',
       fontSize: 30
     })
     this.gametitle.anchor.setTo(0.5)
