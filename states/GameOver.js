@@ -13,7 +13,7 @@ class GameOver extends window.Phaser.State {
       }
     }
     let kvlist = [];
-    kvlist.push({ "rank": JSON.stringify(rankItem) });
+    kvlist.push(JSON.stringify({ rank: rankItem }));
     console.log(kvlist);
     wx.setUserCloudStorage({
       KVDataList:kvlist
