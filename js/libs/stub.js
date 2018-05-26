@@ -1,5 +1,5 @@
 window.CanvasRenderingContext2D = {
-  
+
 }
 window.scrollTo = function () { return false }
 window.pageXOffset = 0

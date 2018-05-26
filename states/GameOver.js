@@ -3,17 +3,30 @@ window.p2 = require('../js/libs/p2.min')
 window.Phaser = require('../js/libs/phaser-split.min')
 
 class GameOver extends window.Phaser.State {
-  init(score){
+  init(score) {
     this.score = score;
+    let timestap = new Date().valueOf();
+    let rankItem = {
+      "wxgame": {
+        "score": this.score,
+        "update_time": timestap
+      }
+    }
+    let kvlist = [];
+    kvlist.push({ "rank": JSON.stringify(rankItem) });
+    console.log(kvlist);
+    wx.setUserCloudStorage({
+      KVDataList:kvlist
+    }); 
   }
 
   create() {
     console.log("gameover state");
     this.gameover = this.add.text(this.world.centerX, this.world.centerY - 120, 'Game Over', {
-        font: 'Arial',
-        fontWeight: 'bold',
-        fill: '#fff',
-        fontSize: 30
+      font: 'Arial',
+      fontWeight: 'bold',
+      fill: '#fff',
+      fontSize: 30
     })
     this.gameover.anchor.setTo(0.5)
 
@@ -37,6 +50,7 @@ class GameOver extends window.Phaser.State {
 
     this.restart.inputEnabled = true;
     this.restart.events.onInputDown.add(function () {
+      this.score = 0;
       this.state.start('Game');
     }, this)
   }
@@ -45,9 +59,9 @@ class GameOver extends window.Phaser.State {
 
   }
 
-  _getRandomColor(){
-    let color = ['#0099cc','#ffcc33','#009966','#ff6666'];
-    let index = Math.floor(Math.random()*4);
+  _getRandomColor() {
+    let color = ['#0099cc', '#ffcc33', '#009966', '#ff6666'];
+    let index = Math.floor(Math.random() * 4);
     return color[index];
   }
 }

@@ -10,6 +10,14 @@ import StartState from './states/Start.js'
 import GameState from './states/Game.js'
 import GameOverState from './states/GameOver.js'
 
+//wechat api part
+wx.showShareMenu()
+wx.onShareAppMessage(function () {
+  return {
+    title: '快来和我一起玩缩小球吧，看看谁更厉害！',
+  }
+})
+
 var gameWidth = window.innerWidth;
 var gameHeight = window.innerHeight;
 

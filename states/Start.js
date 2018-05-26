@@ -26,13 +26,23 @@ class Start extends window.Phaser.State {
       fontWeight: 'bold',
       fontSize: 30
     })
+
+    this.add.text(12, this.world.height - 50, 'omret.com\nV1.0.0', {
+      font: 'Arial',
+      fill: '#fff',
+      fontWeight: 'bold',
+      fontSize: 12
+    })
+
     this.gametitle.anchor.setTo(0.5)
     this.colorBall = this._getRandomColorBall();
-    this.startCircle = this.add.sprite(this.world.centerX, this.world.height - 120, this.colorBall);
+    this.startCircle = this.add.sprite(this.world.centerX, this.world.height - 200, this.colorBall);
 
     this.startCircle.anchor = new Phaser.Point(0.5, 0.5);
     this.startCircle.width = 100;
     this.startCircle.height = 100;
+    
+    this.add.tween(this.startCircle).to({width:150,height:150},1000,'Linear').yoyo(true).repeat(-1).start();
 
     this.startCircle.inputEnabled = true;
     this.startCircle.events.onInputDown.add(function () {
