@@ -5,15 +5,18 @@ window.Phaser = require('../js/libs/phaser-split.min')
 class GameOver extends window.Phaser.State {
   init(score) {
     this.score = score;
-    let timestap = new Date().valueOf();
-    let rankItem = {
-      "wxgame": {
-        "score": this.score,
-        "update_time": timestap
-      }
-    }
-    let kvlist = [];
-    kvlist.push(JSON.stringify({ rank: rankItem }));
+    // let timestap = new Date().valueOf();
+    // let rankItem = {
+    //   wxgame: {
+    //     score: this.score,
+    //     update_time: timestap
+    //   }
+    // }
+    // let kvlist = [];
+    // kvlist.push({ rank: rankItem });
+
+    let kvlist = [{key:"score",value:this.score + ""}];
+
     console.log(kvlist);
     wx.setUserCloudStorage({
       KVDataList:kvlist

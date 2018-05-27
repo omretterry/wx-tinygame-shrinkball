@@ -19,6 +19,7 @@ class Game extends window.Phaser.State {
   }
 
   create() {
+    this.score = 0;
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.ball = this.add.sprite(this.world.centerX, this.world.height - 50, this.colorball)
     this.ball.anchor.setTo(0.5)

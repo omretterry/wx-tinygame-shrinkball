@@ -31,7 +31,7 @@ class Start extends window.Phaser.State {
       font: 'Arial',
       fill: '#fff',
       fontWeight: 'bold',
-      fontSize: 12
+      fontSize: 15
     })
 
     this.gametitle.anchor.setTo(0.5)
